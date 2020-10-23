@@ -28,15 +28,12 @@ export const SignUpPage = () => {
         axios
             .post('https://pintereach-backend-ajg.herokuapp.com/users/signup', newUser)
             .then(res => {
-                console.log("res data", res.data)
                 history.push('/')
             })
             .catch(err => {
                 console.log(err)
                 setError(true)
             })
-            .finally = () => {
-            }
     }
 
     return (
