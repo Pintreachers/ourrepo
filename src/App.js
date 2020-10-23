@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter as Router, Route, Link, } from "react-router-dom";
 import IndividualArticle from "./components/IndividualArticle";
 import ArticleList from "./components/ArticleList";
 import Article from "./components/Article";
@@ -80,6 +79,18 @@ const App = (props) => {
           <IndividualArticle />
           <Article />
         </Route>
+        <Route path = '/signup'>
+        <SignUpPage />
+      </Route>
+      <Route exact path = '/'>
+        <LoginPage />
+      </Route>
+      <Route path = '/success' 
+        render = {() => (
+          window.location = "https://pintreachers.pintereachers.vercel.app/"
+        )}
+      >
+      </Route>
       </div>
     </Router>
   );
@@ -97,3 +108,7 @@ export default connect(mapStateToProps, {
   rankArticle,
   saveArticle,
 })(App);
+
+
+
+
