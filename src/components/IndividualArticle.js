@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { axiosWithAuth } from "../store/actions/utils/axiosWithAuth";
 import axios from "axios";
 
 export default function IndividualArticle() {
@@ -33,3 +32,4 @@ export default function IndividualArticle() {
     </div>
   );
 }
+

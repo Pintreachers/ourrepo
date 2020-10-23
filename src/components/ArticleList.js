@@ -1,8 +1,5 @@
 import React from "react";
 import ArticleCard from "./ArticleCard";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import SavedList from "./SavedList";
 
 function ArticleList(props) {
   const { articles, } = props;
@@ -21,5 +18,4 @@ function ArticleList(props) {
     </div>
   );
 }
-
 export default ArticleList;

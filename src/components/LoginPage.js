@@ -1,8 +1,9 @@
 //async validations?
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {Link, useHistory, Redirect} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
+
 import {StyledSignUp} from './styles/StyledSignUp'
 
 const LoginPage = () => {
@@ -23,23 +24,21 @@ const LoginPage = () => {
         reset()
     };
 
+    const history = useHistory()
+
     const postNewUser = newUser => {
         axios
             .post('https://pintereach-backend-ajg.herokuapp.com/users/login', 
             newUser)
             .then(res => {
-                console.log("res data", res.data)
-                console.log("res", res)
                 const token = res.data.token
                 localStorage.setItem('token', token)
+                history.push('/success')
             })
             .catch(err => {
                 console.log(err)
                 setError(true)
             })
-            .finally = () => {
-                
-            }
     }
 
     return (
@@ -67,6 +66,7 @@ const LoginPage = () => {
                     />
                     {errors.password && <p className='errorMessage'>*Password must be a minimum of 6 characters</p>}                
                     <input 
+                        className='submitButton'
                         type="submit" 
                         value="Sign In" 
                         disabled={!formState.isValid}
